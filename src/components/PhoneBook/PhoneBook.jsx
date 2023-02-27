@@ -8,8 +8,9 @@ import {
   Btn,
 } from './PhoneBook.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
-import { addContactsAction } from 'redux/phoneBook/phoneReducer';
+
+// import { nanoid } from 'nanoid';
+import { addContacts } from 'redux/phoneBook/phoneBookOperations';
 
 export function PhoneBook() {
   const dispatch = useDispatch();
@@ -45,10 +46,10 @@ export function PhoneBook() {
     const contact = {
       name,
       number,
-      id: nanoid(),
+      // id: nanoid(),
     };
 
-    dispatch(addContactsAction(contact));
+    dispatch(addContacts(contact));
 
     reset();
   };
@@ -69,7 +70,7 @@ export function PhoneBook() {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           value={name}
-          id
+          // id
           required
         />
         <TitleNumber htmlFor="">Number</TitleNumber>

@@ -1,13 +1,14 @@
 import { Contact, Btn } from './ContactItem.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteContactsAction } from 'redux/phoneBook/phoneReducer';
+import { deleteContacts } from 'redux/phoneBook/phoneBookOperations';
+// import { deleteContactsAction } from 'redux/phoneBook/phoneSlice';
 
 export function ContactItem({ name, number, id }) {
   const dispatch = useDispatch();
 
   const deleteContact = contactId => {
-    dispatch(deleteContactsAction(contactId));
+    dispatch(deleteContacts(contactId));
   };
 
   return (
