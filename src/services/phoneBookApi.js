@@ -9,7 +9,7 @@ export const fetchContacts = async () => {
 };
 
 export const addPhoneContacts = async contact => {
-  const { data } = await axios.post(`${BASE_URL}contacts/${contact}`);
+  const { data } = await axios.post(`${BASE_URL}contacts`, contact);
 
   return data;
 };

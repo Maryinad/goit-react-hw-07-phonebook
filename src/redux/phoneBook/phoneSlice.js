@@ -27,7 +27,7 @@ const phonebookSlice = createSlice({
       })
       .addCase(getContacts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.contacts = action.payload;
+        state.contacts = [...action.payload].reverse();
       })
       .addCase(getContacts.rejected, (state, action) => {
         state.isLoading = false;
@@ -57,7 +57,7 @@ const phonebookSlice = createSlice({
       .addCase(deleteContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.contacts = state.contacts.filter(
-          contact => contact.id !== action.payload
+          contact => contact.id !== action.payload.id
         );
       })
       .addCase(deleteContacts.rejected, (state, action) => {
@@ -66,13 +66,4 @@ const phonebookSlice = createSlice({
       }),
 });
 
-// Генераторы экшенов
-// export const {
-//   addContactsAction,
-//   deleteContactsAction,
-//   setInputContacts,
-//   setIsLoading,
-//   setError,
-// } = phonebookSlice.actions;
-// Редюсер слайса
 export const phoneReducer = phonebookSlice.reducer;
