@@ -9,7 +9,6 @@ import {
 } from './PhoneBook.styled';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { nanoid } from 'nanoid';
 import { addContacts } from 'redux/phoneBook/phoneBookOperations';
 
 export function PhoneBook() {
